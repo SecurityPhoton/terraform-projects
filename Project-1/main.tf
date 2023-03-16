@@ -9,10 +9,16 @@ terraform {
   required_version = ">= 1.2.0"
 }
 
+#provider "aws" {
+##  region  = "us-west-2"
+##  access_key = "YYYYYYYYY"
+##  secret_key = "XXXXXXXXXXXXXXXX"
+#}
+
 provider "aws" {
-  region  = "us-west-2"
-  access_key = "YYYYYYYYY"
-  secret_key = "XXXXXXXXXXXXXXXX"
+  region                   = "us-west-2"
+  shared_credentials_files = ["~/.aws/credentials"]
+  profile                  = "myawsprofile"
 }
 
 #resource "aws_instance" "app_server" {
